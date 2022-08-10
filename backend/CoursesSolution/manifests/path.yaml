@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: courses-api-ingress
+  labels:
+    name: courses-api-ingress
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: hypertheory-stripprefix-regex@kubernetescrd,hypertheory-cors-promiscuous@kubernetescrd
+
+spec:
+  rules:
+  - host: "api.hypertheory.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/training/v1"
+        backend:
+          service:
+            name: courses-api-service
+            port: 
+              number: 80

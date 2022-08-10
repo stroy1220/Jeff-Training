@@ -1,0 +1,23 @@
+### On the Cluster
+
+GET http://api.hypertheory.com/training/v1/courses/ HTTP/1.1
+Accept: application/json
+
+
+###  Internal
+GET http://localhost:3000/courses HTTP/1.1
+Accept: application/json
+
+
+
+### Adding A Course
+
+POST http://localhost:3000/courses HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "API Developer Testing",
+    "description": "Test your Apis",
+    "numberOfDays": "3"
+}

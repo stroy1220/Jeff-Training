@@ -1,0 +1,14 @@
+
+
+### Find out who is teaching what
+
+POST http://localhost:1338/  HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+ {
+      "id": "62f4061c754d27502c7ce2b7",
+      "name": "API Developer Testing",
+      "description": "Test your Apis",
+      "numberOfDays": 4
+}

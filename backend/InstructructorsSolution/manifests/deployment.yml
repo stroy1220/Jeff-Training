@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: instructors-api
+  namespace: hypertheory
+spec:
+  selector:
+    matchLabels:
+      app: instructors-api
+  template:
+    metadata:
+      labels:
+        app: instructors-api
+    spec:
+      containers:
+      - name: instructors-api
+        image: instructors-api:v0.2
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

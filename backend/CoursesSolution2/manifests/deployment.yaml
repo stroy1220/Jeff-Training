@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: courses-api-2
+  namespace: hypertheory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: courses-api-2
+  template:
+    metadata:
+      labels:
+        app: courses-api-2
+    spec:
+      containers:
+      - name: courses-api-2
+        image: courses-api:v2.0
+        env:
+          - name: ConnectionStrings__courses_db
+            value: mongodb://admin:TokyoJoe138!@mongo-mongodb:27017
+
+        resources:  
+          limits:
+            memory: "127Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
